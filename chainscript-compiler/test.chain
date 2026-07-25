@@ -1,0 +1,17 @@
+AGENT multiplier(x, y) {
+    INT result = x * y
+    RETURN result
+}
+
+AGENT main {
+    OUTPUT("Requesting data from multiplier agent...")
+    
+    INT final_data = RUN multiplier(12, 5)
+    
+    OUTPUT("Received data:")
+    OUTPUT(final_data)
+    
+    IF (final_data == 60) {
+        OUTPUT("Agent communication successful!")
+    }
+}

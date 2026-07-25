@@ -1,0 +1,43 @@
+// Define our AI Agents
+AGENT Developer { MODEL "llama3" ROLE "Write Python code." TEMPERATURE 0.2 }
+AGENT Reviewer { MODEL "llama3" ROLE "Check for syntax errors." TEMPERATURE 0.0 }
+
+// Define a reusable function with its own scope
+FUNCTION attempt_generation(prompt) {
+    TRY {
+        INVOKE Developer WITH prompt AS code
+        RETURN code
+    } CATCH error {
+        RUN_SHELL "echo AI failed to generate: " + error
+        RETURN "ERROR"
+    }
+}
+
+// Global state variables
+SET spec = "Write a python function that prints Hello World"
+SET status = "FAIL"
+SET attempts = 0
+
+// Unbounded Turing-Complete WHILE Loop
+WHILE status == "FAIL" DO
+    SET attempts = attempts + 1
+    RUN_SHELL "echo 'Attempt number: " + attempts + "'"
+    
+    SET generated_code = attempt_generation(spec)
+    
+    // Neural Logic Gate
+    JUDGE generated_code USING Reviewer AS status
+    
+    IF status == "PASS" THEN
+        WRITE "final_code.py" generated_code
+        RUN_SHELL "echo 'Success!'"
+    ELSE
+        RUN_SHELL "echo 'Failed quality check. Retrying...'"
+    ENDIF
+    
+    // Prevent infinite loop if model is completely stuck
+    IF attempts == 3 THEN
+        RUN_SHELL "echo 'Max retries hit. Aborting.'"
+        SET status = "PASS" // Force break
+    ENDIF
+ENDWHILE
