@@ -1,4 +1,7 @@
-# ⛓️ ChainScript Pro: Autonomous Agentic DSL & Local LLM Orchestration Engine
+#  ChainScript Pro: Autonomous Agentic DSL & Local LLM Orchestration Engine
+
+https://github.com/user-attachments/assets/29623d3b-365b-4dc2-b530-cb2b656ac714
+
 
 **ChainScript** is a two-pass compiled domain-specific language (DSL) and execution engine written in Python. It is engineered specifically for deterministic multi-agent orchestration, state-driven control flow, and local LLM execution.
 
@@ -6,11 +9,11 @@ By decoupling agent coordination from traditional object-oriented Python framewo
 
 ---
 
-## ⚡ Why ChainScript? (Eliminating Python Framework Bloat)
+##  Why ChainScript? (Eliminating Python Framework Bloat)
 
 Traditional Python agentic frameworks suffer from massive abstraction layers, deep call stacks, heavy memory footprints, and non-deterministic control flows. ChainScript replaces thousands of lines of Python boilerplate with a lightweight, domain-specific grammar.
 
-### 📊 Efficiency & Architectural Comparison
+###  Efficiency & Architectural Comparison
 
 | Feature / Metric | Python Frameworks (LangChain / AutoGen) | ChainScript Pro OS |
 | :--- | :--- | :--- |
@@ -23,7 +26,7 @@ Traditional Python agentic frameworks suffer from massive abstraction layers, de
 
 ---
 
-### 🥊 Code Comparison: Agent Loop with Feedback
+###  Code Comparison: Agent Loop with Feedback
 
 #### Traditional Python / LangChain Style (~50 Lines of Boilerplate)
 ```python
@@ -79,7 +82,7 @@ ENDWHILE
 
 ---
 
-## 🏛️ Compiler & Interpreter Architecture
+##  Compiler & Interpreter Architecture
 
 ChainScript processes `.chain` source files through a **5-stage compilation and execution pipeline**:
 
@@ -125,7 +128,7 @@ Evaluates validated AST nodes sequentially. Features:
 
 ---
 
-## 🚀 Key Primitives & Features
+##  Key Primitives & Features
 
 * **Native Agent Declarations:** Personas are declared as top-level language entities (`AGENT`, `MODEL`, `ROLE`, `TEMPERATURE`).
 * **Deterministic Quality Gates (`JUDGE`):** Transforms unstructured, stochastic LLM outputs into strictly bounded binary verdicts (`PASS` / `FAIL`) to govern conditional logic.
@@ -135,7 +138,7 @@ Evaluates validated AST nodes sequentially. Features:
 
 ---
 
-## 📝 Complete Language Example: Autonomous Self-Correction Loop
+##  Complete Language Example: Autonomous Self-Correction Loop
 
 ```chainscript
 // 1. Declare AI Agent Personas
@@ -194,7 +197,7 @@ ENDWHILE
 
 ---
 
-## 📜 Formal Language Grammar (EBNF)
+##  Formal Language Grammar (EBNF)
 
 ```ebnf
 Program         ::= Statement*
@@ -225,7 +228,7 @@ Primary         ::= Literal | Identifier | FuncCall | ReadFile | DictLiteral | L
 
 ---
 
-## 🧪 Testing & Verification
+##  Testing & Verification
 
 ChainScript includes an automated unit test suite (`test_chainscript.py`) built with `pytest` to test all phases of the engine:
 
@@ -242,7 +245,7 @@ pytest
 
 ---
 
-## 🛠️ Installation & Getting Started
+##  Installation & Getting Started
 
 ### Prerequisites
 1. **Python 3.10+**
